@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wander & Co. - Car Rental Search</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="javascript.js"></script> 
+</head>
+<body>
+
+    <header>
+        <a href="home.html" class="logo-container">Wander & Co</a>
+        
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="hotels.html">Hotels</a>
+            <a href="flight.html">Flights</a>
+            <a href="car rentals.html" class="active">Car Rentals</a>
+            <a href="offers.html">Offers</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="profile.html">Profile</a>
+            
+            <a href="signin.html" class="btn-signin">Sign in</a>
+        </nav>
+    </header>
+
+    <main class="car-rental-container">
+
+        <div class="tabs">
+            <div class="tab active">Rental cars</div>
+            <div class="tab">Airport transportation</div>
+        </div>
+
+        <div class="booking-form">
+
+            <div class="input-group location">
+                <i class="fa-solid fa-location-dot icon"></i>
+                <div class="input-text">
+                    <span class="label">Pick-up</span>
+                    <span class="value">Enter city or airport</span>
+                </div>
+            </div>
+
+            <div class="input-group location">
+                <i class="fa-solid fa-location-dot icon"></i>
+                <div class="input-text">
+                    <span class="label-small">Drop-off</span>
+                    <span class="value">Same as pick-up</span>
+                </div>
+            </div>
+
+            <div class="input-group date">
+                <i class="fa-regular fa-calendar-days icon"></i>
+                <div class="input-text">
+                    <span class="label-small">Dates</span>
+                    <span class="value">Dec 29 - Dec 30</span>
+                </div>
+            </div>
+
+            <div class="time-group">
+                <div class="time-input">
+                    <span class="label-small">Pick-up time</span>
+                    <select class="time-select">
+                        <option>10:30am</option>
+                        <option>11:00am</option>
+                        </select>
+                </div>
+
+                <div class="time-input">
+                    <span class="label-small">Drop-off time</span>
+                    <select class="time-select">
+                        <option>10:30am</option>
+                        <option>11:00am</option>
+                        </select>
+                </div>
+            </div>
+
+            <div class="rate-buttons">
+                <button class="secondary-btn">Show AARP rates</button>
+                
+                <div class="discount-container">
+                    <span class="discount-text">Discount codes</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+
+            <button class="btn primary-btn">Search</button>
+
+        </div>
+
+        <section id="contact" style="padding: 50px; text-align: center; background-color: var(--bg-cream); border-top: 2px solid var(--accent-gold);">
+            <h2 style="margin-bottom: 20px;">Contact Us</h2>
+            <p style="margin-bottom: 30px;">Get in touch for your next adventure. We're here to help plan your perfect trip.</p>
+            <p>Email: info@wanderco.com | Phone: +1 (555) 123-4567</p>
+            <p>Address: 123 Vintage Lane, Travel City, TC 12345</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Wander & Co. | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

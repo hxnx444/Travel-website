@@ -1,0 +1,162 @@
+/* --- animations.css --- */
+
+/* Modern subtle flicker effect (gentle opacity variation) */
+@keyframes subtle-flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.98; }
+}
+
+/* Smooth page entrance animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Typewriter effect for headings */
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Smooth floating animation for images */
+@keyframes float {
+    0%, 100% { transform: translateY(0px) translateZ(0); }
+    50% { transform: translateY(-10px) translateZ(0); }
+}
+
+/* Gentle wave animation */
+@keyframes wave {
+    0%, 100% { transform: translateY(0px) rotate(0deg) translateZ(0); }
+    25% { transform: translateY(-8px) rotate(0.5deg) translateZ(0); }
+    50% { transform: translateY(0px) rotate(0deg) translateZ(0); }
+    75% { transform: translateY(8px) rotate(-0.5deg) translateZ(0); }
+}
+
+/* Modern glow pulse animation */
+@keyframes glowPulse {
+    0%, 100% { filter: brightness(1) drop-shadow(0 0 0 rgba(185, 148, 91, 0)); }
+    50% { filter: brightness(1.05) drop-shadow(0 0 8px rgba(185, 148, 91, 0.5)); }
+}
+
+/* Subtle tilt animation */
+@keyframes tilt {
+    0%, 100% { transform: rotate(0deg) translateZ(0); }
+    25% { transform: rotate(0.5deg) translateZ(0); }
+    75% { transform: rotate(-0.5deg) translateZ(0); }
+}
+
+/* Gentle wiggle animation */
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg) translateZ(0); }
+    25% { transform: rotate(-1deg) translateZ(0); }
+    75% { transform: rotate(1deg) translateZ(0); }
+}
+
+/* Fun color cycling animation */
+@keyframes colorCycle {
+    0%, 100% { color: #4A3A2D; } /* text-dark */
+    25% { color: #B9945B; } /* accent-gold */
+    50% { color: #6E4D34; } /* btn-brown */
+    75% { color: #3B2C1A; } /* header-footer-bg */
+}
+
+/* Modern hover zoom animation for home image */
+@keyframes hoverZoom {
+    0% { transform: scale(1) translateZ(0); }
+    100% { transform: scale(1.02) translateZ(0); }
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+    from { transform: translateX(-50px) translateZ(0); opacity: 0; }
+    to { transform: translateX(0) translateZ(0); opacity: 1; }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+    from { transform: translateX(50px) translateZ(0); opacity: 0; }
+    to { transform: translateX(0) translateZ(0); opacity: 1; }
+}
+
+/* Modern pulse glow for buttons */
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 4px 6px rgba(74, 58, 45, 0.2); }
+    50% { box-shadow: 0 4px 6px rgba(74, 58, 45, 0.2), 0 0 12px rgba(185, 148, 91, 0.4); }
+}
+
+/* Smooth bounce effect */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateZ(0); }
+    40% { transform: translateY(-5px) translateZ(0); }
+    60% { transform: translateY(-2px) translateZ(0); }
+}
+
+body {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Apply subtle flicker animation to text containers for a gentle aged feel */
+.content-left p, .offers-page-header p, .contact-form-container p {
+    animation: subtle-flicker 8s infinite alternate;
+}
+
+/* Main heading - no special effects */
+.content-left h1 {
+    /* Removed typewriter styles */
+}
+
+/* Smooth floating animation for images */
+.image-right img, .hotel-card img, .offer-card img {
+    animation: float 4s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* Slide in animations for sections */
+.content-left {
+    animation: slideInLeft 1s ease-out forwards;
+}
+
+.image-right {
+    animation: slideInRight 1s ease-out forwards;
+}
+
+/* Pulse glow on buttons */
+.btn, .btn-signin {
+    animation: pulseGlow 3s infinite;
+    will-change: box-shadow;
+}
+
+/* Bounce on hover for quick links */
+.quick-link-item:hover {
+    animation: bounce 0.5s;
+}
+
+/* Dramatic card hover effect */
+.hotel-card, .offer-card {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s;
+    will-change: transform, box-shadow;
+}
+
+/* Button press animation for tactile feedback (Kept subtle and fast) */
+.btn:active, .btn-signin:active, button:active {
+    transform: translateY(1px) !important;
+    box-shadow: var(--modern-shadow) !important;
+}
+
+/* Animation for quick link icons on hover */
+.quick-link-item img {
+    transition: transform 0.3s ease-out, filter 0.3s;
+    will-change: transform, filter;
+}
+.quick-link-item:hover img {
+    transform: scale(1.1) rotate(-1deg);
+    /* Add subtle glow on hover */
+    filter: sepia(0) grayscale(0) drop-shadow(0 0 5px rgba(185, 148, 91, 0.5)); 
+}
+
+/* Modern focus animation for inputs */
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-gold) !important;
+    box-shadow: 0 0 8px rgba(185, 148, 91, 0.6), inset 0 2px 5px rgba(0,0,0,0.1) !important;
+}

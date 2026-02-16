@@ -1,0 +1,802 @@
+/* --- 1950s Vintage Color Palette (Browns & Beiges) --- */
+:root {
+    --bg-cream: #FAF0E6; /* Creamy background (like old paper) */
+    --text-dark: #4A3A2D; /* Deep Chocolate Brown for text/titles */
+    --accent-gold: #B9945B; /* Muted Gold/Brass for highlights/hovers */
+    --btn-brown: #6E4D34; /* Mid-tone Brown for buttons */
+    --header-footer-bg: #3B2C1A; /* Very dark brown for footer/accents */
+    --white: #FFFFFF;
+    --border-radius: 8px; /* Increased for modern feel */
+    --font-primary: 'Georgia', serif; /* Classic font choice */
+    --modern-shadow: 0 4px 6px rgba(74, 58, 45, 0.2); /* Warmer brown shadow */
+    --modern-shadow-hover: 0 8px 12px rgba(74, 58, 45, 0.3);
+}
+
+/* --- Global Reset & Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0; /* Fix: Remove padding to allow full-width header */
+}
+
+/* Improvise: Film Grain / Old Paper Texture Overlay */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Lightweight SVG noise pattern */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+    pointer-events: none; /* Let clicks pass through */
+    z-index: 9999;
+    opacity: 0.5;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-dark);
+}
+
+/* Subtle background texture for the aged paper look */
+main, .auth-container, .contact-form-container, .profile-container, .hotel-card, .offer-card, .search-form-container {
+    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.05), rgba(255,255,255,.05) 1px, transparent 1px, transparent 2px);
+}
+
+/* ----------------------------------------------------
+    HEADER & NAVIGATION STYLES
+    ---------------------------------------------------- */
+header {
+    background: linear-gradient(135deg, var(--white) 0%, #f8f5f0 100%);
+    height: 90px;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--modern-shadow);
+    z-index: 10;
+    border: 2px solid var(--accent-gold);
+}
+
+/* --- LOGO STYLING (Text Logo) --- */
+.logo-container {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--header-footer-bg);
+    text-decoration: none;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 3px;
+}
+
+
+/* Navigation Links */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 17px;
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--accent-gold);
+    border-bottom: 2px solid var(--btn-brown); 
+}
+
+/* Common button style (.btn & .btn-signin) */
+.btn, .btn-signin {
+    padding: 10px 25px;
+    background-color: var(--btn-brown);
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: var(--modern-shadow);
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.btn:hover, .btn-signin:hover {
+    background-color: var(--accent-gold);
+    color: var(--text-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--modern-shadow-hover);
+}
+
+/* Letterpress effect for main headers */
+h1 {
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--header-footer-bg);
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 3px;
+    text-decoration: none;
+}
+h2 {
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+/* ----------------------------------------------------
+    HOME PAGE (landing-page) STYLES
+    ---------------------------------------------------- */
+.landing-page {
+    background-color: var(--bg-cream);
+    flex: 1; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px;
+    overflow: auto; 
+}
+
+.content-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 500px;
+    gap: 25px;
+}
+
+/* Image Styling */
+.image-right img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    max-height: 650px;
+    border-radius: var(--border-radius);
+    object-fit: cover;
+    box-shadow: var(--modern-shadow);
+    border: 5px solid var(--white);
+    display: block;
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.5s;
+    filter: sepia(0.4) contrast(1.1); /* Vintage photo look */
+}
+
+
+
+/* Search Box (Chunky Appliance Feel) */
+.search-box {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    height: 55px; 
+}
+
+.search-box input {
+    width: 100%;
+    height: 100%;
+    border-radius: 2px; /* Retro: Boxy shape instead of pill */
+    border: 3px solid var(--btn-brown); 
+    outline: none;
+    padding-left: 25px;
+    font-size: 16px;
+    background-color: #FFFDF9; /* Slightly off-white paper look */
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.2); 
+    font-family: var(--font-primary);
+    color: var(--text-dark);
+}
+
+.search-box button {
+    position: absolute;
+    top: 5px; 
+    right: 5px;
+    bottom: 5px;
+    padding: 0 25px;
+    border-radius: 2px; /* Retro: Boxy button */
+    box-shadow: var(--modern-shadow);
+}
+
+/* --- ICON/QUICK LINKS STYLING --- */
+.quick-links {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start;
+    gap: 15px; 
+    width: 100%;
+    max-width: 450px;
+    margin-top: 20px;
+    padding: 10px 0;
+}
+
+.quick-link-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 14px;
+    font-weight: 500;
+    transition: transform 0.2s, opacity 0.2s;
+    width: 70px; 
+}
+
+.quick-link-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-bottom: 5px;
+    
+    /* STYLING FOR CIRCULAR FRAME */
+    border-radius: 50%; 
+    border: 4px solid var(--accent-gold); 
+    box-shadow: var(--modern-shadow);
+    /* Vintage Icon Look: Sepia and slightly desaturated */
+    filter: sepia(0.8) grayscale(0.2);
+    transition: transform 0.3s, border-color 0.3s, filter 0.3s;
+}
+
+.quick-link-item:hover {
+    transform: translateY(-5px); 
+    opacity: 1;
+    color: var(--btn-brown);
+}
+
+/* ----------------------------------------------------
+    HOTELS / OFFERS CARD STYLES
+    ---------------------------------------------------- */
+.offers-page-header {
+    text-align: center;
+    padding: 40px 20px 20px;
+}
+
+.offers-page-header h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.hotel-page-content, .offers-page-content {
+    flex: 1;
+    background-color: var(--bg-cream); 
+    padding: 50px 0;
+}
+
+/* Container for the 3-column grid */
+.container {
+    width: 90%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+}
+
+.hotel-card, .offer-card {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--modern-shadow);
+    border: 1px solid var(--accent-gold);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s;
+}
+
+.hotel-card:hover, .offer-card:hover {
+    transform: scale(1.02);
+    box-shadow: var(--modern-shadow-hover);
+}
+
+.hotel-card img, .offer-card img {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--accent-gold);
+    margin-bottom: 15px;
+    /* Vintage Postcard Look */
+    filter: sepia(0.3) contrast(1.05);
+    transition: filter 0.3s;
+}
+
+.hotel-card h2, .offer-card h2 {
+    margin-top: 0;
+    color: var(--text-dark);
+    font-size: 24px;
+}
+
+.offer-card h2 {
+    color: var(--btn-brown);
+}
+
+/* Restore color on hover for that "Technicolor" effect */
+.hotel-card:hover img, .offer-card:hover img, .image-right:hover img {
+    filter: sepia(0) contrast(1);
+}
+
+.hotel-card p, .offer-card p {
+    color: var(--text-dark);
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--white);
+    background-color: var(--accent-gold);
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-style: italic;
+    margin: 10px 0;
+}
+
+/* ----------------------------------------------------
+    FLIGHTS PAGE STYLES (Search form)
+    ---------------------------------------------------- */
+.flight-page {
+    background-color: var(--bg-cream); 
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 100px;
+    text-align: center;
+}
+
+.flight-content h1 {
+    font-size: 48px;
+    margin-bottom: 5px;
+}
+
+.search-form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1000px;
+    margin-top: 30px;
+    gap: 15px;
+    padding: 25px;
+    background-color: var(--white);
+    border: 3px solid var(--accent-gold);
+    border-radius: var(--border-radius);
+    box-shadow: var(--modern-shadow);
+}
+
+.flight-input {
+    padding: 12px;
+    border: 1px solid var(--btn-brown);
+    border-radius: 3px;
+    width: 250px;
+    font-size: 16px;
+    font-family: var(--font-primary);
+    background-color: var(--bg-cream);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); 
+    color: var(--text-dark);
+}
+
+.flight-search-btn {
+    border-radius: var(--border-radius);
+    padding: 12px 25px;
+    margin: 0;
+}
+
+/* ----------------------------------------------------
+    CAR RENTALS PAGE (.car-rental-container) STYLES
+    ---------------------------------------------------- */
+.car-rental-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 5%;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border: 2px solid var(--btn-brown);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.tabs .tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.tabs .tab.active {
+    background-color: var(--btn-brown);
+    color: var(--bg-cream);
+    font-weight: bold;
+}
+
+.booking-form {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    border: 3px solid var(--accent-gold);
+    box-shadow: var(--modern-shadow);
+    max-width: 800px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.input-group {
+    border: 1px solid var(--accent-gold);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-cream);
+}
+
+.input-group .icon {
+    font-size: 1.5em;
+    color: var(--btn-brown);
+    margin-right: 15px;
+}
+
+.input-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.label, .label-small {
+    font-size: 12px;
+    color: var(--accent-gold);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.value {
+    font-size: 16px;
+    color: var(--text-dark);
+}
+
+.time-group {
+    display: flex;
+    gap: 20px;
+    grid-column: span 2;
+}
+
+.time-input {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.time-select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-family: var(--font-primary);
+    background-color: var(--white);
+    color: var(--text-dark);
+}
+
+.rate-buttons {
+    grid-column: span 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.secondary-btn {
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    border: 1px solid var(--accent-gold);
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.discount-container {
+    color: var(--btn-brown);
+    cursor: pointer;
+}
+
+.primary-btn {
+    grid-column: span 2;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+}
+
+/* ----------------------------------------------------
+    CONTACT/PROFILE/SIGN IN PAGES STYLES
+    ---------------------------------------------------- */
+.contact-page-content {
+    flex: 1;
+    background-color: var(--bg-cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 5%;
+}
+
+.profile-page-content {
+    flex: 1;
+    background-color: var(--bg-cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 5%;
+}
+
+.contact-form-container, .auth-container, .profile-container {
+    max-width: 600px;
+    width: 100%;
+    padding: 30px;
+    background-color: var(--white);
+    border: 3px solid var(--accent-gold);
+    border-radius: var(--border-radius);
+    box-shadow: var(--modern-shadow);
+}
+
+.auth-container {
+    max-width: 450px;
+}
+
+.contact-form-container h1, .auth-container h1, .profile-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 42px;
+}
+
+.contact-form-container input,
+.contact-form-container textarea,
+.auth-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--accent-gold);
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: var(--font-primary);
+    background-color: var(--bg-cream);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); 
+    color: var(--text-dark);
+}
+
+.contact-form-container button, .auth-container button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.profile-container {
+    text-align: center;
+    max-width: 400px;
+}
+
+.profile-placeholder {
+    width: 100px;
+    height: 100px;
+    background-color: var(--bg-cream);
+    border: 3px solid var(--accent-gold);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    line-height: 100px;
+    font-weight: bold;
+    color: var(--btn-brown);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.profile-container h2 {
+    font-size: 2em;
+}
+
+.profile-container .email {
+    color: var(--btn-brown);
+    margin-bottom: 25px;
+}
+
+.profile-container .info p {
+    background-color: var(--bg-cream);
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 3px;
+    border-left: 4px solid var(--accent-gold);
+    text-align: left;
+    font-style: italic;
+}
+
+.profile-container .btn {
+    margin-top: 20px;
+    width: 100%;
+}
+
+
+/* ----------------------------------------------------
+    FOOTER STYLES (Used on all pages)
+    ---------------------------------------------------- */
+footer {
+    background-color: var(--header-footer-bg);
+    color: var(--white);
+    text-align: center;
+    padding: 18px;
+    margin-top: auto; 
+    border-top: 3px solid var(--accent-gold);
+    font-size: 14px;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: var(--btn-brown);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: var(--modern-shadow);
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    z-index: 100;
+}
+
+.back-to-top:hover {
+    background-color: var(--accent-gold);
+    color: var(--text-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--modern-shadow-hover);
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border: 5px solid var(--white);
+    box-shadow: var(--modern-shadow-hover);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-cream);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-gold);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--btn-brown);
+}
+
+/* Focus Styles for Accessibility */
+button:focus, input:focus, textarea:focus, a:focus {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    header, footer, nav, .btn, .back-to-top {
+        display: none !important;
+    }
+    .modal {
+        display: none !important;
+    }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1000px) {
+    .landing-page {
+        padding: 40px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .image-right {
+        order: -1; 
+        margin-bottom: 30px;
+    }
+
+    .image-right img {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+    }
+    
+    .content-left {
+        max-width: 100%;
+        align-items: center;
+    }
+
+    .search-box, .quick-links {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .flight-page {
+        padding: 30px 20px;
+    }
+
+    .flight-input {
+        width: 100%;
+    }
+    
+    .booking-form {
+        grid-template-columns: 1fr;
+    }
+
+    .time-group, .rate-buttons {
+        grid-column: span 1;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .secondary-btn {
+        width: 100%;
+    }
+}
