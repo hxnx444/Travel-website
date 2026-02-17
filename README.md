@@ -1,5 +1,7 @@
 # Travel Website 🌍✈️
 
+![Aura Demo](./demo.gif)
+
 > a playful and interactive website to explore destinations, plan trips, and showcase travel ideas.
 
 **Live Demo:** [https://hxnx444.github.io/Travel-website/](https://hxnx444.github.io/Travel-website/)
